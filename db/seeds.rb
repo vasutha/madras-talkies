@@ -6,6 +6,10 @@ def find_category(name)
 	Category.find_by_name(name).id
 end
 
+def find_movie(name)
+	Movie.find_by_title(name).id
+end
+
 User.create!({:email => "vasuthashankar@gmail.com", :password => "vasu@123", :password_confirmation => "vasu@123" })
 user_id = User.find_by_email('vasuthashankar@gmail.com').id
 
@@ -108,3 +112,31 @@ movies_list =[{
 		}]
 
 Movie.create!(movies_list)
+
+
+review_list = [{
+		rating: 4,
+		comments: "Anand is the most impressive movie by the director Hrishikesh Mukherjee. his other movies like Abhimaan and Milli that also shows his directional sensitivity. Anand is a movie which speaks more than it scripts. It tells us more than its characters narrates the story. The impressive character no doubt is of Rajesh Khannna, but Amitabh is too much impressive. The Anand tells us how a man decided and then spent rest of his short life. A Man who had short time, but he wanted to live too much. for him, not the quantity but quality of life does matter. I recommend to see this movies more than once. And every time u see this movie, u'll end up with more brighter definition of film and life. The movie is too simple to narrate here, and tooo deep to express what i actually think about it.",
+		user_id: user_id,
+		movie_id: find_movie('Anand')
+	},{
+		rating: 5,
+		comments: "In 1970, Rajesh Khanna was the biggest star and was shooting for multiple movies along with Anand. But it seems he would take some time out from his other schedules would come to Hrishi da and ask him if he could shoot the next scene from Anand. That's how eager and dedicated he was to Anand. Probably he knew that this was the movie that he would be remembered for.
+							 The movie narrates like the pages of a diary of one Dr. Bhaskar Bannerjee and his relationship with Anand Sehgal who he treated for cancer. Despite of such a heavy theme the movie is high spirited just like Anand Sehgal who likes to laugh in the face of death. Special mention should be made for attention given to each character in the movie. All the characters are well etched and everyone has given a truly inspired performance.
+							 The last sequence must be the most dramatic sequence that I have seen in any movie. Music by Salil Chaudhary and lyrics by Yogesh and Gulzar are apt and wonderful. Definitely one of the best movies made in India.",
+		user_id: user_id,
+		movie_id: find_movie('Anand')
+	},{
+		rating: 5,
+		comments: "Excellent performances by Rajesh Khanna and Amitabh Bachchan. Both showed maturity and depth in their role. This movie is about a person (rajesh Khanna) who is dying of a dreaded disease but lives every moment of his life to fullest. He entertains others and brings happiness to their life. On the contrary, Amitabh Bachchan is young doctor who is frustrated and angry. Rajesh khanna befriends him and both go well with each other. Amitabh tries hard to cure Rajesh Khanna but in vain. Ultimately Rajesh khanna leaves not before leaving a message of love and happiness. Amitabh Bachchan was at his best. This was the first movie when he was seriously noticed by Bollywood. He exceed expectations. A versatile actor this is one of his many movies where he plays a role of serious, angry young man who hardly smiles. Though it was primarily Rajesh Khanna's movie but it catapulted Amitabh Bachchan into fame ultimately replacing Rajesh Khanna as numero uno. A must watchable for Rajesh Khanna and Amitabh fans.",
+		user_id: user_id,
+		movie_id: find_movie('Anand')
+	},{
+		rating: 5,
+		comments: "Simply it is a movie which tells the story of an COP & GANGSTER with there own aspects in it,the great ending ,were the entire plot of the story turns and give the audience to give an buzz inside the head thinking of the story even after times of hour watching it.Should say its rare it Indian movies with such drastic twist in the climax which is seen in Hollywood movies.The performance of the two artist R.MADHAVAN & VIJAY SETHUPATHI naming as the title VIKRAM VEDHA is also an great impact to watch as the Tamil movies are best of making mass movies.",
+		user_id: user_id,
+		movie_id: find_movie('Vikram Vedha')
+	}]
+
+Review.create!(review_list)
+
