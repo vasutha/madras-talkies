@@ -1,8 +1,8 @@
 <h1 class="current-category"> <%= params[:category] %></h1>
 
-<%= form_tag(movies_path, method: :get) do %>
-	 <%= text_field_tag :term, params[:term] %>
-	 <%= submit_tag 'Search', name: nil %>
+<%= form_tag(movies_path, method: :get, class: 'search-form') do %>
+	 <%= text_field_tag :term, params[:term] , class: 'search-form__input'%>
+	 <%= submit_tag 'Search', name: nil, class: 'search-form__button' %>
 <% end %>
 
 <% if @movies.count == 0 %>
@@ -11,8 +11,12 @@
 	<div class="row">
 		<% @movies.each do |movie| %>
 			<div class="col-md-3">
-				<a href="/movies/<%= movie.id %>">
-					<%= image_tag movie.movie_img.url(:movie_index), class: "movie" %>
+				<a href="/movies/<%= movie.id %>" class="movie">
+					<%= image_tag movie.movie_img.url(:movie_index), class: "movie__image" %>
+					<div class="movie__content">
+						<h3><%= movie.title %></h3>
+						<small class="text-muted"><%= movie.year %></small>
+					</div>
 				</a>
 			</div>
 		<% end %>
