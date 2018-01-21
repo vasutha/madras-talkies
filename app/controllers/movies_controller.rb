@@ -3,10 +3,6 @@ class MoviesController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :edit]
 	
 	def index
-		@end_time_hour = 21
-    @end_time_minute = 30
-    @check_end_time = false
-
 		page = params[:page] || 1
 		term = params[:term] || ''
 		@category_id = Category.find_by(name: params[:category]).id if params[:category].present?

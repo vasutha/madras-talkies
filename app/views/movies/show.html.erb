@@ -17,13 +17,15 @@
 </div>
 </div>
 
-<div class="links btn-group">
-	<% if user_signed_in? %>
-		<% if @movie.user_id == current_user.id %>
-			<%= link_to "Edit", edit_movie_path(@movie), class: "btn btn-custom" %>
-			<%= link_to "Delete", movie_path(@movie), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-custom" %>
+<div class="clearfix movie__actions">
+	<div class="links btn-group">
+		<% if user_signed_in? %>
+			<% if @movie.user_id == current_user.id %>
+				<%= link_to "Edit", edit_movie_path(@movie), class: "btn btn-custom" %>
+				<%= link_to "Delete", movie_path(@movie), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-custom" %>
+			<% end %>
 		<% end %>
-	<% end %>
+	</div>
 </div>
 
 <div class="clearfix">
