@@ -53,6 +53,10 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
+  config.serve_static_assets = true
+	config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+	config.assets.compile = true
+
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
