@@ -1,8 +1,9 @@
-<%= simple_form_for([@movie, @movie.reviews.build]) do |f| %>
+<%= simple_form_for([@movie, @movie.reviews.build], html: { novalidate: false }) do |f| %>
+  	<%= f.error_notification %>
 	<div id="rating-form">
 		<label> Rating </label>
 	</div>
-	<%= f.input :comments %>
+	<%= f.input :comments, required: true %>
 	<%= f.button :submit, :class => "btn btn-custom2" %>
 <% end %>
 

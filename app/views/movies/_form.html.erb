@@ -1,8 +1,10 @@
-<%= simple_form_for @movie do |f| %>
-  <%= f.file_field :movie_img %>
-  <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select Category") %>
-  <%= f.input  :title, label: "Movie Title" %>
-  <%= f.input  :description %>
-  <%= f.input  :director %>
+<%= simple_form_for(@movie, html: { novalidate: false }) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.file_field :movie_img, required: true %>
+  <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select Category", required: true, class: 'movie_category') %>
+  <%= f.input  :title, required: true, label: "Movie Title" %>
+  <%= f.input  :description, required: true %>
+  <%= f.input  :director, required: true %>
   <%= f.button :submit %>
 <% end %>

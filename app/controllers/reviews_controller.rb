@@ -38,6 +38,7 @@ class ReviewsController < ApplicationController
 	private
 
 	def review_params
+		params.required(:review)[:rating] = params.required(:review)[:rating].present? ? params.required(:review)[:rating] : 0
 		params.required(:review).permit(:rating, :comments)
 	end
 
