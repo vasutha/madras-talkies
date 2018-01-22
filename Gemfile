@@ -45,3 +45,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pg'
 gem 'rails_12factor'
 
+ruby "2.3.3"
